@@ -5,4 +5,4 @@ gemspec
 
 gem "rake", "~> 12.0"
 gem "minitest", "~> 5.0"
-gem "httparty"
+gem "httparty", "0.18.1"
