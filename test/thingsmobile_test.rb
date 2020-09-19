@@ -13,7 +13,7 @@ class ThingsmobileTest < Minitest::Test
 
     tm.sims.all.each do |sim|
       puts('SIM:')
-      puts(sim)
+      puts(sim.iccid)
     end
 
     assert true

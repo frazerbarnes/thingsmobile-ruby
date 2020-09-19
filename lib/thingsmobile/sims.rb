@@ -1,10 +1,12 @@
+require_relative 'sim'
+
 module ThingsMobile
 
   class Sims
 
     attr_accessor :client
 
-    def initialize(client, device=nil)
+    def initialize(client, device = nil)
       self.client = client
       #@iccid = device['iccid']
       #@device = device
@@ -19,7 +21,7 @@ module ThingsMobile
       response = client.post_request('/blockSim', params)
 
       data = response.parsed_response
-      data["result"]
+      data['result']
     end
 
     def block(msisdn, barcode)
@@ -31,15 +33,22 @@ module ThingsMobile
       response = client.post_request('/activateSim', params)
 
       data = response.parsed_response
-      data["result"]
+      data['result']
     end
 
     def all
 
-      response = client.post_request('/simList', {})
+      response = client.post_request('/simListLite', {})
 
       data = response.parsed_response
-      data["result"]["sims"]["sim"]
+      sims = data['result']['sims']['sim']
+
+      sims_array = []
+      sims.each do |sim|
+        sims_array << Sim.new(client, sim)
+      end
+
+      sims_array
     end
 
   end
