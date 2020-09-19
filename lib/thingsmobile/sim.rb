@@ -87,7 +87,7 @@ module ThingsMobile
     end
 
     def request_api_data
-      @sim = client.post_request('/simListLite', {})
+      #@sim = client.post_request('/simListLite', {})
     end
 
   end
