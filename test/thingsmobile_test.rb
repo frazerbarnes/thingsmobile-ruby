@@ -15,6 +15,7 @@ class ThingsmobileTest < Minitest::Test
       puts('SIM:')
       puts(sim.iccid)
       puts(sim.name)
+      puts(sim.activation_date)
     end
 
     assert true
