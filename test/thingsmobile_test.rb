@@ -10,7 +10,7 @@ class ThingsmobileTest < Minitest::Test
     puts('TEST: Get all sim cards')
 
     tm = ThingsMobile::Base.new(ENV['TM_API_USER'], ENV['TM_API_TOKEN'])
-    
+
     tm.sims.all.each do |sim|
       puts('SIM:')
       puts(sim.iccid)

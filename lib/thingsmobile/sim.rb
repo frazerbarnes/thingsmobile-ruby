@@ -13,7 +13,7 @@ module ThingsMobile
 
     def activation_date
       request_api_data unless @sim['activationDate']
-      @sim['activationDate']
+      DateTime.strptime(@sim['activationDate'], '%Y-%m-%d %H:%M:%S')
     end
 
     def balance
@@ -28,7 +28,7 @@ module ThingsMobile
 
     def expiration_date
       request_api_data unless @sim['lastConnectionDate']
-      @sim['lastConnectionDate']
+      DateTime.strptime(@sim['lastConnectionDate'], '%Y-%m-%d %H:%M:%S')
     end
 
     def iccid
@@ -38,7 +38,7 @@ module ThingsMobile
 
     def last_connection_date
       request_api_data unless @sim['lastConnectionDate']
-      @sim['lastConnectionDate']
+      DateTime.strptime(@sim['lastConnectionDate'], '%Y-%m-%d %H:%M:%S')
     end
 
     def messages
